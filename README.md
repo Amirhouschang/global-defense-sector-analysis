@@ -2,7 +2,7 @@
 
 **Language:** English | [Deutsch](README_DE.md)
 
-A data-analysis project examining 42 publicly traded defense-related companies from 15 countries between January 2022 and August 2026.
+This data-analysis project examines 42 publicly traded defense-related companies from 15 countries between January 2022 and August 2026.
 
 ## Project Overview
 
