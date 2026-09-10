@@ -1,6 +1,6 @@
 # Globale Analyse des Verteidigungssektors
 
-**Sprache:** Deutsch | [English](README.md)
+**Sprache:** [English](README.md) | Deutsch
 
 Das Projekt analysiert 42 börsennotierte verteidigungsbezogene Unternehmen aus 15 Ländern zwischen
 Januar 2022 und August 2026.
@@ -229,6 +229,14 @@ global-defense-sector-analysis/
 
 Das Notebook schreibt seine Exportdateien in das Arbeitsverzeichnis. Die CSV-Dateien liegen in
 diesem Repository unter `data/` und wurden nach dem finalen Durchlauf dorthin verschoben.
+
+## Dateien
+
+- [global_defense_sector_analysis.ipynb](global_defense_sector_analysis.ipynb) — vollständiges Analyse-Notebook
+- [data/defense_stocks_clean.csv](data/defense_stocks_clean.csv) — bereinigte Kursdaten, 48.915 Zeilen
+- [data/company_metadata.csv](data/company_metadata.csv) — Ticker, Unternehmen, Land, Währung und Gruppen
+- [data/market_benchmarks.csv](data/market_benchmarks.csv) — Benchmarkreihen, roh und normiert
+- [data/date_table.csv](data/date_table.csv) — Datumstabelle für das Power-BI-Modell
 
 ## Werkzeuge
 

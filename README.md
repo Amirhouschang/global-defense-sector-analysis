@@ -223,6 +223,14 @@ global-defense-sector-analysis/
 The notebook writes its export files to the working directory. The CSV files are stored under
 `data/` in this repository and were moved there after the final run.
 
+## Files
+
+- [global_defense_sector_analysis.ipynb](global_defense_sector_analysis.ipynb) — full analysis notebook
+- [data/defense_stocks_clean.csv](data/defense_stocks_clean.csv) — cleaned daily price data, 48,915 rows
+- [data/company_metadata.csv](data/company_metadata.csv) — ticker, company, country, currency and groups
+- [data/market_benchmarks.csv](data/market_benchmarks.csv) — benchmark series, raw and normalized
+- [data/date_table.csv](data/date_table.csv) — date table for the Power BI model
+
 ## Tools
 
 - Python
