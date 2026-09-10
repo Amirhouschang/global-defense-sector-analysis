@@ -1,6 +1,6 @@
 # Globale Analyse des Verteidigungssektors
 
-**Sprache:** [English](README.md) | Deutsch
+**Sprache:** Deutsch | [English](README.md)
 
 Das Projekt analysiert 42 börsennotierte verteidigungsbezogene Unternehmen aus 15 Ländern zwischen
 Januar 2022 und August 2026.
