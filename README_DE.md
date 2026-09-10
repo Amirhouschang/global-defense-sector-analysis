@@ -2,7 +2,7 @@
 
 **Sprache:** [English](README.md) | Deutsch
 
-Ein Datenanalyseprojekt zu 42 börsennotierten verteidigungsbezogenen Unternehmen aus 15 Ländern im Zeitraum Januar 2022 bis August 2026.
+Dieses Datenanalyseprojekt untersucht 42 börsennotierte verteidigungsbezogene Unternehmen aus 15 Ländern im Zeitraum Januar 2022 bis August 2026.
 
 ## Projektüberblick
 
