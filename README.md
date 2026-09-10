@@ -6,7 +6,7 @@ This data-analysis project examines 42 publicly traded defense-related companies
 
 ## Project Overview
 
-The project combines financial-market analysis with geopolitical context. It examines cumulative returns, volatility, business groups, geographic coverage, geopolitical event reactions, trading volume, correlations, and performance relative to major market benchmarks.
+The project combines financial-market analysis with geopolitical context. It covers cumulative returns, volatility, business groups, geographic coverage, geopolitical event reactions, trading volume, correlations, and performance relative to major market benchmarks.
 
 | Item | Scope |
 |---|---|
@@ -15,13 +15,22 @@ The project combines financial-market analysis with geopolitical context. It exa
 | Analysis period | January 2022 – August 2026 |
 | Clean stock observations | 48,915 |
 | Business groups | 4 analytical groups |
+| Geopolitical events | 16 events, February 2022 – July 2026 |
 | Benchmarks | S&P 500, DAX, Euro Stoxx 50, CSI 300, Gold, Brent Oil |
 | Main tools | Python, pandas, NumPy, Matplotlib, Plotly, yfinance |
 | Dashboard | Power BI planned |
 
 ## Analytical Scope
 
-The analysis addresses several complementary questions: which companies generated the strongest cumulative returns, how average and median performance differed across defense business groups, how geographically broad the sample is, how individual companies and the custom defense-sector index behaved around major geopolitical events, which stocks were most volatile, which offered the strongest return relative to volatility, where trading-volume spikes occurred, which companies moved most closely together, and whether the defense-sector sample outperformed major financial-market benchmarks.
+The analysis addresses twelve complementary questions, among them:
+
+- which companies generated the strongest cumulative returns
+- how average and median performance differed across defense business groups
+- how geographically broad the company sample is
+- how individual companies and the custom defense-sector index behaved around major geopolitical events
+- which stocks were most volatile, and which offered the strongest return relative to volatility
+- where trading-volume spikes occurred and which companies moved most closely together
+- whether the defense-sector sample outperformed major financial-market benchmarks
 
 ## Data and Methodology
 
@@ -35,6 +44,12 @@ Companies are classified at two levels. `Defense_Type` provides a detailed descr
 - Defense Software / AI / Services
 
 The custom global defense-sector index is constructed by normalizing each company to 100 at the beginning of the analysis period, converting the series to monthly observations, and taking the median across the company sample. It is a sample-based analytical index, not a market-cap-weighted or investable index.
+
+### Geopolitical Events
+
+Sixteen events between February 2022 and July 2026 were selected and dated manually. They cover the war in Ukraine, NATO enlargement, the Middle East escalations of 2023–2026, European rearmament policy and the change in US administration. Selection focused on developments with plausible relevance for defense procurement or regional security expectations.
+
+Event dates refer to the date on which the event occurred, not the date on which markets first traded on it. Several events fall on weekends or market holidays, so the notebook maps each event to the nearest available trading day for short-term reactions, and to the first month-end strictly after the event for index levels.
 
 Short-term event reactions compare adjusted prices five trading days before and five trading days after selected geopolitical events. Trading-volume reactions compare average volume during the five trading days before an event with the five trading days after it. These measures describe market reactions around event dates and do not establish causality.
 
@@ -78,13 +93,24 @@ Gold also performed strongly, especially from 2024 onward, while Brent oil was c
 
 ## Selected Findings
 
-Several companies recorded exceptionally strong cumulative returns, led by firms including Hanwha Aerospace, Mitsubishi Heavy Industries, Rheinmetall, Saab and LIG Nex1. Performance across the sector was nevertheless highly uneven.
+Fourteen of the 42 companies gained more than 500% over the analysis period, led by Hanwha Aerospace, Mitsubishi Heavy Industries, Rheinmetall, Saab and LIG Nex1. Five companies ended the period with negative cumulative returns, so performance across the sector was highly uneven.
 
 Traditional Defense had the highest median cumulative return among the four analytical groups, while Aerospace / Industrial Defense had a similarly high average but a lower median, showing the influence of extreme high performers.
 
 Company-level risk also differed sharply. BigBear.ai showed the highest annualized return volatility in the sample. Event-window analysis identified large but highly heterogeneous price and trading-volume reactions around major geopolitical developments, with the Ukraine War associated with some of the strongest reactions in the dataset.
 
-The custom defense-sector index reached its highest monthly level at about 355 in January 2026 and ended August 2026 at about 293. Within the selected sample, it substantially outperformed the S&P 500, DAX, Euro Stoxx 50, CSI 300, gold and Brent oil over the study period.
+The custom defense-sector index reached its highest monthly level at about 355 in January 2026 and ended August 2026 at about 293. Within the selected sample, it substantially outperformed the S&P 500, DAX, Euro Stoxx 50 and CSI 300 over the study period, and ended above gold and Brent oil.
+
+## How to Run
+
+The repository includes the cleaned CSV files used for the final analysis, so the notebook can be reviewed without re-downloading any market data.
+
+```bash
+pip install pandas numpy matplotlib plotly yfinance jupyter
+jupyter notebook global_defense_sector_analysis.ipynb
+```
+
+Python 3.10 or later is recommended. Running the notebook from the top re-downloads the data from Yahoo Finance and overwrites the CSV files; skip the download cells to work with the stored dataset instead.
 
 ## Power BI Dashboard
 
@@ -148,6 +174,8 @@ global-defense-sector-analysis/
     └── Power BI dashboard files and screenshots will be added here
 ```
 
+The notebook writes its export files to the working directory. The CSV files are stored under `data/` in this repository and were moved there after the final run.
+
 ## Tools
 
 - Python
@@ -157,11 +185,11 @@ global-defense-sector-analysis/
 - Plotly
 - yfinance
 - Jupyter Notebook
-- Power BI
+- Power BI (planned)
 
 ## AI-Assisted Workflow
 
-ChatGPT was used as a supporting tool for coding assistance, debugging, methodological review and documentation.
+AI assistants were used as supporting tools for coding assistance, debugging, methodological review and documentation.
 
 I defined the project scope, selected the companies and research questions, reviewed the outputs against the underlying data, and made the final analytical and methodological decisions. AI-generated suggestions were tested, corrected, modified or rejected when they did not fit the data, methodology or purpose of the analysis.
 
@@ -171,6 +199,7 @@ I defined the project scope, selected the companies and research questions, revi
 - Returns are calculated in local trading currencies and are not FX-adjusted.
 - The custom defense-sector index is sample-based, median-based and not market-cap weighted.
 - Event-window results show associations and short-term market reactions, not causal effects.
+- The selection and dating of geopolitical events reflect analytical judgement; a different event set could produce different short-term results.
 - International markets have different trading calendars and time zones.
 - The CSI 300 benchmark in the downloaded dataset ends on 17 July 2026, while the other benchmark series extend through August 2026.
 - The return-to-risk measure used in the notebook is a simplified ratio of annualized return to annualized volatility and is not a Sharpe ratio.
