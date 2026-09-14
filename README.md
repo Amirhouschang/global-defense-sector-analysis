@@ -21,7 +21,7 @@ volume, correlations, and performance relative to major market benchmarks.
 | Geopolitical events | 16 events, February 2022 – July 2026 |
 | Benchmarks | S&P 500, DAX, Euro Stoxx 50, CSI 300, Gold, Brent Oil |
 | Main tools | Python, pandas, NumPy, Matplotlib, Plotly, yfinance |
-| Dashboard | Power BI planned |
+| Dashboard | Power BI, two interactive report pages |
 
 ## Analytical Scope
 
@@ -157,41 +157,76 @@ instead.
 
 ## Power BI Dashboard
 
-**Status: Planned**
+The Python notebook contains the full analytical workflow. Power BI is used as an interactive
+presentation layer rather than as a replacement for the Python analysis. The report is built on the
+CSV tables exported by the notebook and lets a reader filter by business group and by geopolitical
+event instead of re-running code. It does not repeat every question answered in the notebook and
+concentrates on the parts that gain from interactivity.
 
-The Python notebook contains the full analytical workflow. Power BI will be used as an interactive
-presentation layer rather than as a replacement for the Python analysis.
+### Data Model
 
-The planned dashboard will contain two pages.
+![Power BI star schema of the defense sector model](images/star_schema_defense_power_bi.png)
+
+The model is a star schema with two dimension tables and three analytical tables.
+
+| Table | Role | Rows | Grain |
+|---|---|---|---|
+| `company_metadata` | Dimension | 42 | one row per company |
+| `date_table` | Dimension | 1,704 | one row per calendar day, 1 January 2022 – 31 August 2026 |
+| `defense_stocks_clean` | Fact | 48,915 | one row per company and trading day |
+| `market_comparison_powerbi` | Fact | 391 | one row per asset and month end |
+| `event_reactions_powerbi` | Fact | 672 | one row per event and company |
+
+All relationships are one-to-many with single-direction filtering from the dimension table to the
+analytical table:
+
+- `company_metadata[Ticker]` → `defense_stocks_clean[Ticker]`
+- `company_metadata[Ticker]` → `event_reactions_powerbi[Ticker]`
+- `date_table[Date]` → `defense_stocks_clean[Date]`
+- `date_table[Date]` → `market_comparison_powerbi[Date]`
+- `date_table[Date]` → `event_reactions_powerbi[Event_Date]`
+
+The date dimension contains every calendar day so that month and quarter filters behave correctly,
+while the price table contains trading days only. `Month_Name` is sorted by the numeric `Month`
+column. Return and volatility columns are stored as percentage values, for example `25.4` for
+25.4%, and remain decimal-number columns in Power BI rather than being multiplied by 100 again. Key
+uniqueness and foreign-key integrity are validated in the notebook before the tables are exported.
 
 ### Page 1 — Market & Company Overview
 
-- KPI cards: number of companies, countries, analysis period and selected-company metrics
-- Interactive country map
-- Average vs median cumulative return by `Analysis_Group`
-- Company performance chart with company, country and business-group filters
-- Comparison of the custom defense-sector index with major stock-market benchmarks, gold and Brent
-  oil
-- Slicers for company, country, analysis group and date
+![Power BI report page: market and company overview](images/market_company_overview_power_bi.png)
+
+The first page covers sample size, sector performance and company-level risk:
+
+- cards showing the size of the sample, 42 companies from 15 countries
+- a slicer on the four analytical business groups, which filters every visual on the page
+- the custom defense-sector index against gold and Brent oil, indexed to January 2022 = 100
+- the same index against the S&P 500, DAX, Euro Stoxx 50 and CSI 300
+- the leading companies by cumulative return over the analysis period
+- a scatter plot of annualized volatility against annualized return, coloured by business group
+
+The CSI 300 series ends earlier than the other benchmarks because the underlying data source stops
+there. This is documented under Limitations and is not a data error.
 
 ### Page 2 — Geopolitical Event Analysis
 
-- Defense-sector timeline with selected geopolitical events
-- Interactive company/event reaction matrix
-- Trading-volume reaction matrix
-- Top positive and negative event reactions
-- Filters for event, company, country and business group
+![Power BI report page: geopolitical event analysis](images/geopolitical_event_analysis_power_bi.png)
 
-The Power BI data model will use:
+The second page makes the event study interactive:
 
-- `date_table[Date]` → `defense_stocks_clean[Date]` (1:* relationship)
-- `date_table[Date]` → `market_benchmarks[Date]` (1:* relationship)
-- `company_metadata[Ticker]` → `defense_stocks_clean[Ticker]` (1:* relationship)
+- a slicer with the 16 geopolitical events of the analysis period
+- the largest average changes in trading volume around an event window, led by BigBear.ai at 208.5%
+- the largest average 10-day price reactions, led by LIG Nex1 at 12.1%
+- a detail table with every event and company combination, sortable by either measure
+- a scatter plot of price reaction against volume change, coloured by business group
 
-In Power BI, `Month_Name` should be sorted by the numeric `Month` column.
+With no event selected, the visuals show the average across all 16 events. Selecting one or more
+events in the slicer reduces every visual to those events, which makes it possible to compare, for
+example, the market reaction to the start of the war in Ukraine with the reaction to the ReArm
+Europe plan.
 
-When the dashboard is completed, the `.pbix` file and one or two dashboard screenshots will be added
-to the `powerbi/` folder.
+As in the notebook, event windows describe market behaviour around an event date. They are not
+evidence that the event caused the movement.
 
 ## Repository Structure
 
@@ -205,8 +240,9 @@ global-defense-sector-analysis/
 ├── data/
 │   ├── defense_stocks_clean.csv
 │   ├── company_metadata.csv
-│   ├── market_benchmarks.csv
-│   └── date_table.csv
+│   ├── date_table.csv
+│   ├── market_comparison_powerbi.csv
+│   └── event_reactions_powerbi.csv
 │
 ├── images/
 │   ├── global_company_coverage.png
@@ -214,22 +250,27 @@ global-defense-sector-analysis/
 │   ├── defense_sector_geopolitical_events.png
 │   ├── geopolitical_event_reactions.png
 │   ├── defense_sector_vs_stock_markets.png
-│   └── defense_sector_vs_gold_oil.png
+│   ├── defense_sector_vs_gold_oil.png
+│   ├── star_schema_defense_power_bi.png
+│   ├── market_company_overview_power_bi.png
+│   └── geopolitical_event_analysis_power_bi.png
 │
 └── powerbi/
-    └── Power BI dashboard files and screenshots will be added here
+    └── global_defense_sector_analysis.pbix
 ```
 
 The notebook writes its export files to the working directory. The CSV files are stored under
-`data/` in this repository and were moved there after the final run.
+`data/` in this repository and were moved there after the final run. The Power BI report reads the
+same five tables.
 
 ## Files
 
 - [global_defense_sector_analysis.ipynb](global_defense_sector_analysis.ipynb) — full analysis notebook
 - [data/defense_stocks_clean.csv](data/defense_stocks_clean.csv) — cleaned daily price data, 48,915 rows
-- [data/company_metadata.csv](data/company_metadata.csv) — ticker, company, country, currency and groups
-- [data/market_benchmarks.csv](data/market_benchmarks.csv) — benchmark series, raw and normalized
-- [data/date_table.csv](data/date_table.csv) — date table for the Power BI model
+- [data/company_metadata.csv](data/company_metadata.csv) — company dimension with country, currency, groups and performance metrics, 42 rows
+- [data/date_table.csv](data/date_table.csv) — date dimension for the Power BI model, 1,704 rows
+- [data/market_comparison_powerbi.csv](data/market_comparison_powerbi.csv) — normalized monthly index for the sector and all benchmarks, 391 rows
+- [data/event_reactions_powerbi.csv](data/event_reactions_powerbi.csv) — price and trading-volume reactions per event and company, 672 rows
 
 ## Tools
 
@@ -240,7 +281,7 @@ The notebook writes its export files to the working directory. The CSV files are
 - Plotly
 - yfinance
 - Jupyter Notebook
-- Power BI (planned)
+- Power BI
 
 ## AI-Assisted Workflow
 

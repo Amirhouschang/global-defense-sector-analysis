@@ -1,43 +1,43 @@
-Ticker,Company,Country,Currency,Defense_Type,Analysis_Group
-LMT,Lockheed Martin,United States,USD,Defense-focused,Traditional Defense
-RTX,RTX,United States,USD,Aerospace & Defense,Aerospace / Industrial Defense
-NOC,Northrop Grumman,United States,USD,Defense-focused,Traditional Defense
-GD,General Dynamics,United States,USD,Defense-focused,Traditional Defense
-LHX,L3Harris Technologies,United States,USD,Defense Technology,Defense Technology / Electronics
-HII,Huntington Ingalls Industries,United States,USD,Naval Defense,Traditional Defense
-PLTR,Palantir,United States,USD,Defense Software / AI,Defense Software / AI / Services
-BBAI,BigBear.ai,United States,USD,Defense Software / AI,Defense Software / AI / Services
-KTOS,Kratos Defense,United States,USD,Defense Technology,Defense Technology / Electronics
-LDOS,Leidos,United States,USD,Defense IT / Services,Defense Software / AI / Services
-CACI,CACI International,United States,USD,Defense IT / Services,Defense Software / AI / Services
-BAH,Booz Allen Hamilton,United States,USD,Defense IT / Services,Defense Software / AI / Services
-BA.L,BAE Systems,United Kingdom,GBp,Defense-focused,Traditional Defense
-BAB.L,Babcock International,United Kingdom,GBp,Defense Services,Defense Software / AI / Services
-QQ.L,QinetiQ,United Kingdom,GBp,Defense Technology,Defense Technology / Electronics
-CHG.L,Chemring Group,United Kingdom,GBp,Defense-focused,Traditional Defense
-RHM.DE,Rheinmetall,Germany,EUR,Defense-focused,Traditional Defense
-HAG.DE,Hensoldt,Germany,EUR,Defense Electronics,Defense Technology / Electronics
-HO.PA,Thales,France,EUR,Aerospace & Defense,Aerospace / Industrial Defense
-AM.PA,Dassault Aviation,France,EUR,Aerospace & Defense,Aerospace / Industrial Defense
-SAF.PA,Safran,France,EUR,Aerospace & Defense,Aerospace / Industrial Defense
-AIR.PA,Airbus,Netherlands,EUR,Aerospace & Defense,Aerospace / Industrial Defense
-LDO.MI,Leonardo,Italy,EUR,Aerospace & Defense,Aerospace / Industrial Defense
-FCT.MI,Fincantieri,Italy,EUR,Naval / Diversified,Aerospace / Industrial Defense
-SAAB-B.ST,Saab,Sweden,SEK,Defense-focused,Traditional Defense
-KOG.OL,Kongsberg Gruppen,Norway,NOK,Diversified + Defense,Aerospace / Industrial Defense
-IDR.MC,Indra Sistemas,Spain,EUR,Technology + Defense,Defense Technology / Electronics
-ESLT,Elbit Systems,Israel,USD,Defense-focused,Traditional Defense
-012450.KS,Hanwha Aerospace,South Korea,KRW,Aerospace & Defense,Aerospace / Industrial Defense
-047810.KS,Korea Aerospace Industries,South Korea,KRW,Aerospace & Defense,Aerospace / Industrial Defense
-079550.KS,LIG Nex1,South Korea,KRW,Defense-focused,Traditional Defense
-HAL.NS,Hindustan Aeronautics,India,INR,Aerospace & Defense,Aerospace / Industrial Defense
-BEL.NS,Bharat Electronics,India,INR,Defense Electronics,Defense Technology / Electronics
-BDL.NS,Bharat Dynamics,India,INR,Defense-focused,Traditional Defense
-7011.T,Mitsubishi Heavy Industries,Japan,JPY,Diversified + Defense,Aerospace / Industrial Defense
-7012.T,Kawasaki Heavy Industries,Japan,JPY,Diversified + Defense,Aerospace / Industrial Defense
-ASB.AX,Austal,Australia,AUD,Naval Defense,Aerospace / Industrial Defense
-000768.SZ,AVIC Xi'an Aircraft Industry,China,CNY,Aerospace & Defense,Aerospace / Industrial Defense
-600760.SS,AVIC Shenyang Aircraft,China,CNY,Aerospace & Defense,Aerospace / Industrial Defense
-600372.SS,AVIC Airborne Systems,China,CNY,Defense Electronics,Defense Technology / Electronics
-600893.SS,AECC Aviation Power,China,CNY,Aerospace & Defense,Aerospace / Industrial Defense
-600118.SS,China Spacesat,China,CNY,Defense Technology,Defense Technology / Electronics
+Ticker,Company,Country,Currency,Defense_Type,Analysis_Group,Cumulative_Return_%,Annualized_Return_%,Annualized_Volatility_%,Return_to_Risk
+LMT,Lockheed Martin,United States,USD,Defense-focused,Traditional Defense,78.45490964158333,13.242609294972961,23.948738618304194,0.5529564419251517
+RTX,RTX,United States,USD,Aerospace & Defense,Aerospace / Industrial Defense,164.37901737832,23.21494229470047,24.478979135586325,0.9483623547418176
+NOC,Northrop Grumman,United States,USD,Defense-focused,Traditional Defense,51.16430144563036,9.277947951561561,26.116045570294567,0.35525852972605737
+GD,General Dynamics,United States,USD,Defense-focused,Traditional Defense,97.61646717685066,15.750027913956188,20.968310906305852,0.7511347949929359
+LHX,L3Harris Technologies,United States,USD,Defense Technology,Defense Technology / Electronics,37.73510215629132,7.116552386068253,25.05089540793433,0.2840837531026631
+HII,Huntington Ingalls Industries,United States,USD,Naval Defense,Traditional Defense,73.26799949156543,12.527634526482224,32.77296217794856,0.38225517908513934
+PLTR,Palantir,United States,USD,Defense Software / AI,Defense Software / AI / Services,905.8283754794234,64.16046604037173,68.17264551794104,0.9411467833309561
+BBAI,BigBear.ai,United States,USD,Defense Software / AI,Defense Software / AI / Services,-46.587029980769465,-12.598577860796444,171.58020205909173,-0.07342675733915693
+KTOS,Kratos Defense,United States,USD,Defense Technology,Defense Technology / Electronics,159.44020626932405,22.717028497287338,54.18849530363652,0.41922235282592957
+LDOS,Leidos,United States,USD,Defense IT / Services,Defense Software / AI / Services,64.4112139833939,11.266961878031934,27.881691471910408,0.40409893672996516
+CACI,CACI International,United States,USD,Defense IT / Services,Defense Software / AI / Services,128.15028859098354,19.376706646768802,30.263102268198733,0.6402749617355111
+BAH,Booz Allen Hamilton,United States,USD,Defense IT / Services,Defense Software / AI / Services,-5.727863996173433,-1.2585677321306776,32.693217600048456,-0.03849629447695636
+BA.L,BAE Systems,United Kingdom,GBp,Defense-focused,Traditional Defense,268.97038554214214,32.35738463746964,27.187878250357038,1.1901401183097
+BAB.L,Babcock International,United Kingdom,GBp,Defense Services,Defense Software / AI / Services,221.59645438791324,28.50890888958748,33.20137653464615,0.8586664730553564
+QQ.L,QinetiQ,United Kingdom,GBp,Defense Technology,Defense Technology / Electronics,86.6408770070497,14.338468307774654,31.64467964210355,0.4531083414318148
+CHG.L,Chemring Group,United Kingdom,GBp,Defense-focused,Traditional Defense,85.51894143407787,14.190534673030086,30.13890909593121,0.4708377011212335
+RHM.DE,Rheinmetall,Germany,EUR,Defense-focused,Traditional Defense,1290.6296855440585,75.98593241284578,44.55905421553226,1.7052860243689563
+HAG.DE,Hensoldt,Germany,EUR,Defense Electronics,Defense Technology / Electronics,612.0557543635948,52.42544076555673,53.175451899553074,0.9858955381251279
+HO.PA,Thales,France,EUR,Aerospace & Defense,Aerospace / Industrial Defense,253.99844380193306,31.18531157889104,29.113190446713684,1.0711746497165946
+AM.PA,Dassault Aviation,France,EUR,Aerospace & Defense,Aerospace / Industrial Defense,219.04056853673066,28.28891588549869,29.492856899547213,0.9591785557381182
+SAF.PA,Safran,France,EUR,Aerospace & Defense,Aerospace / Industrial Defense,220.95788472935237,28.454074245185446,27.65799612835033,1.0287829282042278
+AIR.PA,Airbus,Netherlands,EUR,Aerospace & Defense,Aerospace / Industrial Defense,85.11340528031252,14.136889529439323,28.23588113156404,0.5006710951774096
+LDO.MI,Leonardo,Italy,EUR,Aerospace & Defense,Aerospace / Industrial Defense,762.0894294345707,58.81371251321858,36.597210294851045,1.6070545279101023
+FCT.MI,Fincantieri,Italy,EUR,Naval / Diversified,Aerospace / Industrial Defense,166.0599924854745,23.382746223866135,41.21519668513814,0.5673331223552734
+SAAB-B.ST,Saab,Sweden,SEK,Defense-focused,Traditional Defense,1035.1823657254738,68.48090626162566,40.966209893372614,1.6716436897596496
+KOG.OL,Kongsberg Gruppen,Norway,NOK,Diversified + Defense,Aerospace / Industrial Defense,520.915564643704,48.008005850834515,37.469486577102565,1.2812560362161993
+IDR.MC,Indra Sistemas,Spain,EUR,Technology + Defense,Defense Technology / Electronics,576.0402677493506,50.736078648688654,35.55063615360756,1.4271496698249695
+ESLT,Elbit Systems,Israel,USD,Defense-focused,Traditional Defense,315.896887093792,35.804045596361476,34.80596335901577,1.0286756101835397
+012450.KS,Hanwha Aerospace,South Korea,KRW,Aerospace & Defense,Aerospace / Industrial Defense,1962.4770165320133,91.52891462523922,58.047209187314486,1.576801295129995
+047810.KS,Korea Aerospace Industries,South Korea,KRW,Aerospace & Defense,Aerospace / Industrial Defense,306.90140503288114,35.16789812676813,48.90273278465413,0.7191397315489894
+079550.KS,LIG Nex1,South Korea,KRW,Defense-focused,Traditional Defense,925.6806975349232,64.8508687773383,64.11122018016714,1.0115369602246314
+HAL.NS,Hindustan Aeronautics,India,INR,Aerospace & Defense,Aerospace / Industrial Defense,737.2795778896098,57.82102997017651,33.72178603104422,1.7146490970836055
+BEL.NS,Bharat Electronics,India,INR,Defense Electronics,Defense Technology / Electronics,525.6878901637866,48.251541208072844,31.23889641426877,1.5445981371490873
+BDL.NS,Bharat Dynamics,India,INR,Defense-focused,Traditional Defense,578.9376680872142,50.874565802624595,45.414916806615494,1.1202170868055803
+7011.T,Mitsubishi Heavy Industries,Japan,JPY,Diversified + Defense,Aerospace / Industrial Defense,1416.3530730319944,79.28719740712462,43.21391930532646,1.8347606206908393
+7012.T,Kawasaki Heavy Industries,Japan,JPY,Diversified + Defense,Aerospace / Industrial Defense,570.2763894624828,50.45919062549675,47.03458034468105,1.072810478072076
+ASB.AX,Austal,Australia,AUD,Naval Defense,Aerospace / Industrial Defense,125.68863334681141,19.098953157413632,49.42085021378221,0.38645537409405845
+000768.SZ,AVIC Xi'an Aircraft Industry,China,CNY,Aerospace & Defense,Aerospace / Industrial Defense,-40.437089887434674,-10.529197072320773,34.75297192751671,-0.3029725657500953
+600760.SS,AVIC Shenyang Aircraft,China,CNY,Aerospace & Defense,Aerospace / Industrial Defense,1.7900869872787606,0.38170614927361957,35.27208432997017,0.010821763344143785
+600372.SS,AVIC Airborne Systems,China,CNY,Defense Electronics,Defense Technology / Electronics,-47.550439902037944,-12.939509120664095,31.240840554080762,-0.41418569062713334
+600893.SS,AECC Aviation Power,China,CNY,Aerospace & Defense,Aerospace / Industrial Defense,-38.18496251598901,-9.81333079754213,35.775769671549526,-0.2743010391568494
+600118.SS,China Spacesat,China,CNY,Defense Technology,Defense Technology / Electronics,123.67317577647312,18.869768222575157,46.32087268616796,0.40737074084120023
