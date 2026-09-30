@@ -60,8 +60,8 @@ or investable index.
 ### Geopolitical Events
 
 Sixteen events between February 2022 and July 2026 were selected and dated manually. They cover the
-war in Ukraine, NATO enlargement, the Middle East escalations of 2023–2026, European rearmament
-policy and the change in US administration. Selection focused on developments with plausible
+war in Ukraine, the Taiwan crisis of 2022, NATO enlargement, the Middle East escalations of
+2023–2026, European rearmament policy and the change in US administration. Selection focused on developments with plausible
 relevance for defense procurement or regional security expectations.
 
 Event dates refer to the date on which the event occurred, not the date on which markets first
@@ -187,9 +187,9 @@ analytical table:
 - `date_table[Date]` → `event_reactions_powerbi[Event_Date]`
 
 The date dimension contains every calendar day so that month and quarter filters behave correctly,
-while the price table contains trading days only. `Month_Name` is sorted by the numeric `Month`
-column. Return and volatility columns are stored as percentage values, for example `25.4` for
-25.4%, and remain decimal-number columns in Power BI rather than being multiplied by 100 again. Key
+while the price table contains trading days only. In the CSV files, return, volatility and event-reaction columns are stored as percentage
+values, for example `25.4` for 25.4%. Power BI divides them by 100 on import and displays them
+with a percentage format. Key
 uniqueness and foreign-key integrity are validated in the notebook before the tables are exported.
 
 ### Page 1 — Market & Company Overview
@@ -199,7 +199,7 @@ uniqueness and foreign-key integrity are validated in the notebook before the ta
 The first page covers sample size, sector performance and company-level risk:
 
 - cards showing the size of the sample, 42 companies from 15 countries
-- a slicer on the four analytical business groups, which filters every visual on the page
+- a slicer on the four analytical business groups, which filters the company visuals on the page
 - the custom defense-sector index against gold and Brent oil, indexed to January 2022 = 100
 - the same index against the S&P 500, DAX, Euro Stoxx 50 and CSI 300
 - the leading companies by cumulative return over the analysis period
@@ -242,6 +242,7 @@ global-defense-sector-analysis/
 │   ├── company_metadata.csv
 │   ├── date_table.csv
 │   ├── market_comparison_powerbi.csv
+│   ├── market_benchmarks.csv
 │   └── event_reactions_powerbi.csv
 │
 ├── images/
@@ -255,8 +256,7 @@ global-defense-sector-analysis/
 │   ├── market_company_overview_power_bi.png
 │   └── geopolitical_event_analysis_power_bi.png
 │
-└── powerbi/
-    └── global_defense_sector_analysis.pbix
+└── Defense.pbix
 ```
 
 The notebook writes its export files to the working directory. The CSV files are stored under
@@ -266,10 +266,12 @@ same five tables.
 ## Files
 
 - [global_defense_sector_analysis.ipynb](global_defense_sector_analysis.ipynb) — full analysis notebook
+- [Defense.pbix](Defense.pbix) — Power BI report with two report pages
 - [data/defense_stocks_clean.csv](data/defense_stocks_clean.csv) — cleaned daily price data, 48,915 rows
 - [data/company_metadata.csv](data/company_metadata.csv) — company dimension with country, currency, groups and performance metrics, 42 rows
 - [data/date_table.csv](data/date_table.csv) — date dimension for the Power BI model, 1,704 rows
 - [data/market_comparison_powerbi.csv](data/market_comparison_powerbi.csv) — normalized monthly index for the sector and all benchmarks, 391 rows
+- [data/market_benchmarks.csv](data/market_benchmarks.csv) — daily closing prices and normalized index for the six benchmarks, 6,968 rows
 - [data/event_reactions_powerbi.csv](data/event_reactions_powerbi.csv) — price and trading-volume reactions per event and company, 672 rows
 
 ## Tools

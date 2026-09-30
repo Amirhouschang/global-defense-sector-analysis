@@ -61,8 +61,8 @@ Stichprobenindex und nicht um einen marktkapitalisierungsgewichteten oder invest
 ### Geopolitische Ereignisse
 
 Sechzehn Ereignisse zwischen Februar 2022 und Juli 2026 wurden manuell ausgewählt und datiert. Sie
-umfassen den Krieg in der Ukraine, die NATO-Erweiterung, die Eskalationen im Nahen Osten von 2023
-bis 2026, die europäische Aufrüstungspolitik und den Regierungswechsel in den USA. Die Auswahl
+umfassen den Krieg in der Ukraine, die Taiwan-Krise 2022, die NATO-Erweiterung, die Eskalationen
+im Nahen Osten von 2023 bis 2026, die europäische Aufrüstungspolitik und den Regierungswechsel in den USA. Die Auswahl
 konzentriert sich auf Entwicklungen mit plausibler Relevanz für Rüstungsbeschaffung oder regionale
 Sicherheitserwartungen.
 
@@ -193,10 +193,9 @@ Tabelle:
 - `date_table[Date]` → `event_reactions_powerbi[Event_Date]`
 
 Die Datumsdimension enthält jeden Kalendertag, damit Monats- und Quartalsfilter korrekt arbeiten,
-während die Kurstabelle nur Handelstage enthält. `Month_Name` wird über die numerische Spalte
-`Month` sortiert. Rendite- und Volatilitätsspalten sind als Prozentwerte gespeichert, etwa `25.4`
-für 25,4 %, und bleiben in Power BI Dezimalzahlenspalten, werden also nicht erneut mit 100
-multipliziert. Die Eindeutigkeit der Schlüssel und die Fremdschlüsselintegrität werden im Notebook
+während die Kurstabelle nur Handelstage enthält. In den CSV-Dateien sind die Rendite-, Volatilitäts- und Ereignisreaktionsspalten als
+Prozentwerte gespeichert, etwa `25.4` für 25,4 %. Power BI teilt sie beim Import durch 100 und
+zeigt sie im Prozentformat an. Die Eindeutigkeit der Schlüssel und die Fremdschlüsselintegrität werden im Notebook
 geprüft, bevor die Tabellen exportiert werden.
 
 ### Seite 1 — Markt- und Unternehmensüberblick
@@ -206,7 +205,7 @@ geprüft, bevor die Tabellen exportiert werden.
 Die erste Seite zeigt Stichprobenumfang, Sektorentwicklung und unternehmensbezogenes Risiko:
 
 - Karten mit dem Umfang der Stichprobe, 42 Unternehmen aus 15 Ländern
-- ein Datenschnitt für die vier analytischen Geschäftsgruppen, der alle Visuals der Seite filtert
+- ein Datenschnitt für die vier analytischen Geschäftsgruppen, der die Unternehmens-Visuals der Seite filtert
 - der benutzerdefinierte Verteidigungssektor-Index im Vergleich zu Gold und Brent Oil, indexiert auf
   Januar 2022 = 100
 - derselbe Index im Vergleich zu S&P 500, DAX, Euro Stoxx 50 und CSI 300
@@ -253,6 +252,7 @@ global-defense-sector-analysis/
 │   ├── company_metadata.csv
 │   ├── date_table.csv
 │   ├── market_comparison_powerbi.csv
+│   ├── market_benchmarks.csv
 │   └── event_reactions_powerbi.csv
 │
 ├── images/
@@ -266,8 +266,7 @@ global-defense-sector-analysis/
 │   ├── market_company_overview_power_bi.png
 │   └── geopolitical_event_analysis_power_bi.png
 │
-└── powerbi/
-    └── global_defense_sector_analysis.pbix
+└── Defense.pbix
 ```
 
 Das Notebook schreibt seine Exportdateien in das Arbeitsverzeichnis. Die CSV-Dateien liegen in
@@ -277,10 +276,12 @@ Power-BI-Bericht verwendet dieselben fünf Tabellen.
 ## Dateien
 
 - [global_defense_sector_analysis.ipynb](global_defense_sector_analysis.ipynb) — vollständiges Analyse-Notebook
+- [Defense.pbix](Defense.pbix) — Power-BI-Bericht mit zwei Berichtsseiten
 - [data/defense_stocks_clean.csv](data/defense_stocks_clean.csv) — bereinigte Kursdaten, 48.915 Zeilen
 - [data/company_metadata.csv](data/company_metadata.csv) — Unternehmensdimension mit Land, Währung, Gruppen und Kennzahlen, 42 Zeilen
 - [data/date_table.csv](data/date_table.csv) — Datumsdimension für das Power-BI-Modell, 1.704 Zeilen
 - [data/market_comparison_powerbi.csv](data/market_comparison_powerbi.csv) — normierter Monatsindex für den Sektor und alle Benchmarks, 391 Zeilen
+- [data/market_benchmarks.csv](data/market_benchmarks.csv) — tägliche Schlusskurse und normierter Index der sechs Benchmarks, 6.968 Zeilen
 - [data/event_reactions_powerbi.csv](data/event_reactions_powerbi.csv) — Kurs- und Handelsvolumenreaktionen je Ereignis und Unternehmen, 672 Zeilen
 
 ## Werkzeuge
