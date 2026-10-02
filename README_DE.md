@@ -337,3 +337,9 @@ Datenerfassung und Bereinigung über Analyse und Visualisierung bis zur Vorberei
 ---
 
 Dieses Projekt dient als Datenanalyse-Portfolio-Projekt und stellt keine Anlageberatung dar.
+
+---
+
+## Rechte
+
+© 2026 Amirhoushang Rahmannejad. Alle Rechte vorbehalten. Ansehen und Prüfen ist ausdrücklich erwünscht. Kopieren, Ändern oder Weiterverbreiten nur mit meiner schriftlichen Erlaubnis.
