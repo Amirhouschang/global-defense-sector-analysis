@@ -324,3 +324,9 @@ preparation.
 ---
 
 This project is intended as a data-analysis portfolio project and not as investment advice.
+
+---
+
+## Rights
+
+© 2026 Amirhoushang Rahmannejad. All rights reserved. You are welcome to read and review this project. Copying, modifying or redistributing it requires my written permission.
